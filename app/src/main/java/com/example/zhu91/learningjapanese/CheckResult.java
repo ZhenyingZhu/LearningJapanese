@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class CheckResult extends AppCompatActivity {
+    private boolean cheatMode = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +31,13 @@ public class CheckResult extends AppCompatActivity {
 
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        if (message.equals("cheat")) {
+            cheatMode = true;
+        }
         // Show the first word
         CardStack stack = CardStack.getInstance(true);
         TextView textView = (TextView)findViewById(R.id.show_message);
-        textView.setText(stack.getRandomCard().getWord());
+        textView.setText(stack.getRandomCard(cheatMode).getWord());
     }
 
     public void inputText(View view) {
@@ -47,7 +51,7 @@ public class CheckResult extends AppCompatActivity {
         showResult.setText(stack.compareResult(input));
         // Show next word card
         TextView textView = (TextView)findViewById(R.id.show_message);
-        Card newCard = stack.getRandomCard();
+        Card newCard = stack.getRandomCard(cheatMode);
         if (newCard == null) {
             textView.setText("Done");
         } else {

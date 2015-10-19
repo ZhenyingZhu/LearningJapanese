@@ -10,31 +10,35 @@
     tools:showIn="@layout/activity_check_result"
     tools:context="com.example.zhu91.learningjapanese.CheckResult">
 
-    <EditText android:id="@+id/input_content"
+    <TextView android:id="@+id/show_message"
+        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/edit_message" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:text="@string/button_commit"
-        android:onClick="inputText" />
+        android:layout_centerHorizontal="true"
+        android:textSize="50sp" />
 
     <TextView android:id="@+id/show_result"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="150dp"
         android:text="Hello World"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:textSize="25sp" />
 
-    <TextView android:id="@+id/show_message"
-        android:layout_marginTop="150dp"
+    <EditText android:id="@+id/input_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:textSize="50sp" />
+        android:layout_centerVertical="true"
+        android:singleLine="true"
+        android:hint="@string/edit_message" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="@string/button_commit"
+        android:onClick="inputText" />
+
 
 </RelativeLayout>
